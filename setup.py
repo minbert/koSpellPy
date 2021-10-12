@@ -10,7 +10,7 @@ setuptools.setup(
     description="Korean Spell Checker",
     long_description=open("README.md", "r", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
-    url="",
+    url="https://github.com/Kangsukmin/koSpellPy",
     install_requires=open("requirements.txt").read().splitlines(),
     classifiers=[
         "Programming Language :: Python :: 3",
