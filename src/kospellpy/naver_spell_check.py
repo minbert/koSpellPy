@@ -16,7 +16,7 @@ def spell_check_func(text):
 
 def spell_check(text):
     if len(text) > 500:
-        text_list = list(filter(None, re.split("\.\n|\.\t|\. ", text.strip())))
+        text_list = list(filter(None, re.split("\.\\n|\.\\t|\. ", text.strip())))
         res_text_list = []
         for text in text_list:
             res_text_list.append(spell_check_func(text))
