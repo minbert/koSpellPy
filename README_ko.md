@@ -1,35 +1,25 @@
-# pypi-template
+# koSpellPy
 
-파이썬 패키지 배포를 위한 탬플릿
+한국어 맞춤법 검사기
 
-# Clone this project
-```
-npx degit https://github.com/Kangsukmin/pypi-template your_project
-cd your_project
-```
+# 사용법
 
-# How to use
-
-1. src/{패키지이름} 에 패키지를 만드세요
-
-2. 필요한 모듈을 설치합니다.
+## 설치
 
 ```
-pip install setuptools wheel twine
+pip install kospellpy
 ```
 
-3. setup.py에 빈칸을 채우세요
+## 사용
 
-4. (옵션) 사용한 모듈이 있다면, requirements.txt에 채우세요
+```python
+from kospellpy import spell_init
 
-5. 패키지를 빌드합니다.
+spell_checker = spell_init() # 기본값으로 부산대학교 맞춤법 검사기를 사용합니다.
+                             # 네이버 맞춤법 검사기를 사용하시려면 spell_init('naver') 를 사용하세요
 
-```
-python setup.py sdist bdist_wheel
-```
+text = "인공지능이너무 재밓따!"
 
-6. 배포합니다.
-
-```
-python -m twine upload dist/*
+print(spell_checker(text))
+>> 인공지능이 너무 재밌다!
 ```

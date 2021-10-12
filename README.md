@@ -1,37 +1,27 @@
 [한국어 문서](./README_ko.md)
 
-# pypi-template
+# koSpellPy
 
-Template for python package
-
-# Clone this project
-```
-npx degit https://github.com/Kangsukmin/pypi-template your_project
-cd your_project
-```
+Korean Spell checker
 
 # How to use
 
-1. Make your package in src/{package_name}
-
-2. Install some packages
+## Install
 
 ```
-pip install setuptools wheel twine
+pip install kospellpy
 ```
 
-3. Fill in the blanks on setup.py
+## Use
 
-4. (Optional) If you want to add dependencies, Fill those in requirements.txt
+```python
+from kospellpy import spell_init
 
-5. Build your package
+spell_checker = spell_init() # default: busan spell check
+                             # if you want to use naver_spell_check, just use spell_init('naver')
 
-```
-python setup.py sdist bdist_wheel
-```
+text = "인공지능이너무 재밓따!"
 
-6. Upload your package
-
-```
-python -m twine upload dist/*
+print(spell_checker(text))
+>> 인공지능이 너무 재밌다!
 ```
