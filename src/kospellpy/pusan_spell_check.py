@@ -23,14 +23,15 @@ def spell_check(text):
     spell_info = get_spell_check_info(raw_data)
     spelled_text, err_list = get_text_and_error(spell_info)
     for error in err_list:
-        spelled_text = (
-            spelled_text[: error["start"]]
-            + error["candWord"].split("|")[0]
-            + spelled_text[error["end"] :]
-        )
+        if error["candWord"] != "":
+            spelled_text = (
+                spelled_text[: error["start"]]
+                + error["candWord"].split("|")[0]
+                + spelled_text[error["end"] :]
+            )
     return spelled_text
 
 
 if __name__ == "__main__":
-    text = "인공지능이너무 재밓따!"
+    text = "검사할 텍스트"
     print(spell_check(text))
