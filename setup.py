@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
     name="kospellpy",
-    version="0.0.2",
+    version="0.0.3",
     license="MIT",
     author="decyma",
     author_email="soos3121@gmail.com",
