@@ -11,12 +11,13 @@ def set_payload(text):
 def spell_check_func(text):
     payload = set_payload(text)
     res = eval(requests.get(URL, params=payload).text)["message"]["result"]
-    return res["notag_html"].replace("<br>", " ")
+    return res["notag_html"].replace("<br>", "\n")
 
 
 def spell_check(text):
+    text.replace("\n", " \n ")
     if len(text) > 500:
-        text_list = list(filter(None, re.split("\.\\n|\.\\t|\. ", text.strip())))
+        text_list = text.split(". ")
         res_text_list = []
         for text in text_list:
             res_text_list.append(spell_check_func(text))
